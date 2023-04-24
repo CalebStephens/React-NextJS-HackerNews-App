@@ -18,7 +18,6 @@ const Stories = () => {
     useEffect(() => {
       console.log("test")
       setIsLoaded(false);
-      toggleDropdown();
       const fetchData = async () => {
         console.log(story)
         try{
@@ -37,11 +36,7 @@ const Stories = () => {
         } catch (error) {
           setIsError(true);
         }
-
-
     }
-    
-
       fetchData();  
     }, [story])
   
