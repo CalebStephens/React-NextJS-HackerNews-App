@@ -1,22 +1,37 @@
 
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import StoriesDisplay from '@/components/storiesDisplay';
+import StoriesDisplay from '@/components/StoriesDisplay';
 
 
 
-const Stories = ({storyData}) => {
+const Stories = () => {
   
     const [isOpen, setIsOpen] = useState(false);
     const [story, setStory] = useState("askstories");
+    const [storyData, setStoryData] = useState([]);
+
+    const LIMIT = 50;
 
     useEffect(() => {
+      console.log("test")
       const fetchData = async () => {
+        console.log(story)
         const res = await axios.get(
-        `https://hacker-news.firebaseio.com/v0/${story}.json?print=pretty`
-      );
-      console.log('here');
+          `https://hacker-news.firebaseio.com/v0/${story}.json?print=pretty&limitToFirst=${LIMIT}&orderBy="$key"`
+          );
+          setStoryData(await Promise.all(
+          res.data.map(async (storyId) => {
+            const res = await axios.get(
+              `https://hacker-news.firebaseio.com/v0/item/${storyId}.json?print=pretty`
+            );
+            return res.data;
+          })
+        ));
+
+
     }
+    
 
       fetchData();  
     }, [story])
@@ -63,37 +78,35 @@ const Stories = ({storyData}) => {
     </div>
   )
 }
-export const getServerSideProps = async () => {
-  const LIMIT = 50;
-  try {
-    const storyRes = await axios.get(
-      `https://hacker-news.firebaseio.com/v0/askstories.json?print=pretty&limitToFirst=${LIMIT}&orderBy="$key"`
-    );
-    console.log(storyRes)
-    const storyData = await Promise.all(
-      storyRes.data.map(async (storyId) => {
-        const res = await axios.get(
-          `https://hacker-news.firebaseio.com/v0/item/${storyId}.json?print=pretty`
-        );
-        console.log(res.data);
-        return res.data;
-      })
-    );
+// export const getServerSideProps = async () => {
+//   const LIMIT = 50;
+//   try {
+//     const storyRes = await axios.get(
+//       `https://hacker-news.firebaseio.com/v0/askstories.json?print=pretty&limitToFirst=${LIMIT}&orderBy="$key"`
+//     );
+//     const storyData = await Promise.all(
+//       storyRes.data.map(async (storyId) => {
+//         const res = await axios.get(
+//           `https://hacker-news.firebaseio.com/v0/item/${storyId}.json?print=pretty`
+//         );
+//         return res.data;
+//       })
+//     );
   
-    return {
-      props: {
-        storyData: storyData,
-      },
-    };
-  } catch (error) {
-    console.error(error);
-    return {
-      props: {
-        storyData: [],
-      },
-    };
-  }
-};
+//     return {
+//       props: {
+//         storyData: storyData,
+//       },
+//     };
+//   } catch (error) {
+//     console.error(error);
+//     return {
+//       props: {
+//         storyData: [],
+//       },
+//     };
+//   }
+// };
 
 
 export default Stories;
