@@ -2,25 +2,25 @@ import axios from "axios";
 import { useRouter } from "next/router";
 
 
-const User = ({ user }) => {
+const Story = ({ story }) => {
   const router = useRouter();
   const { id } = router.query;
-    console.log(user);
+  console.log(story.kids)
   return (
     <>
       <h1>User {id}</h1>
-      <p>by: {user.by}</p>
-      {
-        user.kids.map((kid) => {
+      <p>by: {story.by}</p>
+      { story.kids ?
+        story.kids.slice(0,5).map((kid, index) => {
           return (
-            <p>{kid}</p>
+            <p key={index}>{kid}</p>
           )
         }
-        )}
-      <p>score: {user.score}</p>
-      <p>title: {user.title}</p>
-      <p>type: {user.type}</p>
-      <p>time: {user.time}</p>
+        ): <p>N/A</p>}
+      <p>score: {story.score}</p>
+      <p>title: {story.title}</p>
+      <p>type: {story.type}</p>
+      <p>time: {story.time}</p>
 
 
 
@@ -32,14 +32,14 @@ const User = ({ user }) => {
 
 export const getServerSideProps = async (context) => {
   const { id } = context.params;
-  const userRes = await axios.get(
+  const storyRes = await axios.get(
     `https://hacker-news.firebaseio.com/v0/item/${id}.json?print=pretty`
   );
   return {
     props: {
-      user: userRes.data,
+      story: storyRes.data,
     },
   };
 };
 
-export default User;
+export default Story;
