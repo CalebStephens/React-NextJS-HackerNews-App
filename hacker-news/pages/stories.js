@@ -1,9 +1,6 @@
-
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import StoriesDisplay from '@/components/StoriesDisplay';
-
-
 
 const Stories = () => {
   
@@ -16,7 +13,6 @@ const Stories = () => {
     const LIMIT = 50;
 
     useEffect(() => {
-      console.log("test")
       setIsLoaded(false);
       const fetchData = async () => {
         console.log(story)

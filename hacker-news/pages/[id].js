@@ -9,7 +9,22 @@ const User = ({ user }) => {
   return (
     <>
       <h1>User {id}</h1>
-      
+      <p>by: {user.by}</p>
+      {
+        user.kids.map((kid) => {
+          return (
+            <p>{kid}</p>
+          )
+        }
+        )}
+      <p>score: {user.score}</p>
+      <p>title: {user.title}</p>
+      <p>type: {user.type}</p>
+      <p>time: {user.time}</p>
+
+
+
+
       
     </>
   );
