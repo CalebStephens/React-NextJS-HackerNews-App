@@ -10,7 +10,8 @@
     "commit": "git-cz",
     "lint:check": "npx eslint .",
     "prettier:check": "npx prettier --check .",
-    "prettier:write": "npx pretty-quick --staged"
+    "prettier:write": "npx pretty-quick --staged",
+    "prettier": "npx prettier --write ."
   },
   "dependencies": {
     "autoprefixer": "10.4.14",

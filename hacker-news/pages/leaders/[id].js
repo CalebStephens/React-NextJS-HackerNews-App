@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useRouter } from "next/router";
-import ErrorPage from 'next/error'
+import ErrorPage from "next/error";
 import leaders from "@/json/leaders";
 
 const Leader = ({ account }) => {
@@ -8,26 +8,27 @@ const Leader = ({ account }) => {
   const { id } = router.query;
   return (
     <>
-   { leaders.names.includes(id) ?  
-      <div>
-        <h1>User {id}</h1>
-        <p>about: {account.about}</p>
-        <p>created: {account.created}</p>
-        <p>id: {account.id}</p>
-        <p>karma: {account.karma}</p>
-        {
-        account.submitted.slice(0,5).map((kid, index) => {
-          return (
-            <p key={index}><a href={`https://hacker-news.firebaseio.com/v0/item/${kid}.json?print=pretty`}>{`https://hacker-news.firebaseio.com/v0/item/${kid}.json?print=pretty`}</a></p>
-          )
-        }
-        )}
-      </div>
-      : <ErrorPage statusCode={404} /> 
-      
-    }
+      {leaders.names.includes(id) ? (
+        <div>
+          <h1>User {id}</h1>
+          <p>about: {account.about}</p>
+          <p>created: {account.created}</p>
+          <p>id: {account.id}</p>
+          <p>karma: {account.karma}</p>
+          {account.submitted.slice(0, 5).map((kid, index) => {
+            return (
+              <p key={index}>
+                <a
+                  href={`https://hacker-news.firebaseio.com/v0/item/${kid}.json?print=pretty`}
+                >{`https://hacker-news.firebaseio.com/v0/item/${kid}.json?print=pretty`}</a>
+              </p>
+            );
+          })}
+        </div>
+      ) : (
+        <ErrorPage statusCode={404} />
+      )}
     </>
-    
   );
 };
 
