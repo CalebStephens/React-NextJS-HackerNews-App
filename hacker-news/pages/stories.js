@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import ErrorPage from 'next/error'
 import StoriesDisplay from '@/components/StoriesDisplay';
 
 const Stories = () => {
@@ -15,7 +16,6 @@ const Stories = () => {
     useEffect(() => {
       setIsLoaded(false);
       const fetchData = async () => {
-        console.log(story)
         try{
         const res = await axios.get(
           `https://hacker-news.firebaseio.com/v0/${story}.json?print=pretty&limitToFirst=${LIMIT}&orderBy="$key"`
@@ -59,30 +59,32 @@ const Stories = () => {
           className="z-10 block bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 absolute left-0 mt-2">
           <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
             <li>
-              <a onClick={() => setStory("askstories")} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Ask Stories</a>
+              <a onClick={() => {setStory("askstories"); toggleDropdown()}} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Ask Stories</a>
             </li>
             <li>
-              <a onClick={() => setStory("beststories")} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Best Stories</a>
+              <a onClick={() => {setStory("beststories"); toggleDropdown()}} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Best Stories</a>
             </li>
             <li>
-            <a onClick={() => setStory("jobstories")} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Job Stories</a>
+            <a onClick={() => {setStory("jobstories"); toggleDropdown()}} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Job Stories</a>
             </li>
             <li>
-            <a onClick={() => setStory("newstories")} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">New Stories</a>
+            <a onClick={() => {setStory("newstories"); toggleDropdown()}} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">New Stories</a>
             </li>
             <li>
-            <a onClick={() => setStory("showories")} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Show Stories</a>
+            <a onClick={() => {setStory("showstories"); toggleDropdown()}} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Show Stories</a>
             </li>
             <li>
-            <a onClick={() => setStory("topstories")} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Top Stories</a>
+            <a onClick={() => {setStory("topstries"); toggleDropdown()}} className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Top Stories</a>
             </li>
           </ul>
         </div>
       )}
       {
-        isLoaded ? <StoriesDisplay data={storyData} /> : <p>Loading...</p>
+        isLoaded && !isError ? <StoriesDisplay data={storyData} /> : <p>Loading...</p>
       }
-      
+      {
+        isError ? <ErrorPage statusCode={404} /> : null
+      }
     </div>
   )
 }

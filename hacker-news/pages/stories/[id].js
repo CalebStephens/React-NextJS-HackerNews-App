@@ -1,11 +1,12 @@
 import axios from "axios";
 import { useRouter } from "next/router";
 
-
 const Story = ({ story }) => {
   const router = useRouter();
   const { id } = router.query;
-  console.log(story.kids)
+  console.log(story)
+
+  const time = new Date(story.time * 1000).toLocaleString();
   return (
     <>
       <h1>User {id}</h1>
@@ -20,12 +21,10 @@ const Story = ({ story }) => {
       <p>score: {story.score}</p>
       <p>title: {story.title}</p>
       <p>type: {story.type}</p>
-      <p>time: {story.time}</p>
-
-
-
-
-      
+      <p>time: {time}</p>
+      {
+        story.url ? <p>url: {story.url}</p> : <p>N/A</p>
+      }
     </>
   );
 };
