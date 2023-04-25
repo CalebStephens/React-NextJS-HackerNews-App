@@ -4,7 +4,6 @@ import { useRouter } from "next/router";
 const Story = ({ story }) => {
   const router = useRouter();
   const { id } = router.query;
-  console.log(story);
 
   const time = new Date(story.time * 1000).toLocaleString();
   return (

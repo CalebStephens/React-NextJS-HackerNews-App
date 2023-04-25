@@ -22,10 +22,10 @@ const Stories = () => {
         setStoryData(
           await Promise.all(
             res.data.map(async (storyId) => {
-              const res = await axios.get(
+              const storyRes = await axios.get(
                 `https://hacker-news.firebaseio.com/v0/item/${storyId}.json?print=pretty`
               );
-              return res.data;
+              return storyRes.data;
             })
           )
         );
