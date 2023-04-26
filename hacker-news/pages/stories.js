@@ -29,6 +29,7 @@ const Stories = () => {
             })
           )
         );
+        setIsError(false);
         setIsLoaded(true);
       } catch (error) {
         setIsError(true);
@@ -133,7 +134,7 @@ const Stories = () => {
             <li>
               <a
                 onClick={() => {
-                  setStory("topstries");
+                  setStory("topstories");
                   toggleDropdown();
                 }}
                 className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
