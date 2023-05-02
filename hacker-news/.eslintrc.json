@@ -30,6 +30,8 @@
 
     "arrow-body-style": "off",
 
+    "no-nested-ternary": "off",
+
     "prettier/prettier": ["error", { "endOfLine": "auto" }]
   },
   "plugins": ["prettier"]

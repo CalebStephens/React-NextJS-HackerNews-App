@@ -11,6 +11,7 @@
     "lint:check": "npx eslint .",
     "prettier:check": "npx prettier --check .",
     "prettier:write": "npx pretty-quick --staged",
+    "prettier": "npx prettier --write . ",
     "test": "jest --watch"
   },
   "dependencies": {

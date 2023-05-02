@@ -20,7 +20,6 @@ const Stories = () => {
   const [story, setStory] = useState("askstories"); // selected story type
   const [storyData, setStoryData] = useState([]); // fetched story data
 
-
   // Define the maximum number of stories to fetch
   const LIMIT = 50;
 
@@ -56,9 +55,9 @@ const Stories = () => {
       setIsLoading(false);
     };
     fetchData();
-  }, [story]);// Re-run the effect when the selected story type changes
+  }, [story]); // Re-run the effect when the selected story type changes
 
-  //When called toggles the dropdown menu
+  // When called toggles the dropdown menu
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
@@ -101,7 +100,7 @@ const Stories = () => {
           >
             {/* Each menu item calls a function to set the story type */}
             <li>
-              <a 
+              <a
                 data-testid="storiesOption"
                 onClick={() => {
                   setStory("askstories");
@@ -114,7 +113,7 @@ const Stories = () => {
             </li>
             <li>
               <a
-              data-testid="storiesOption"
+                data-testid="storiesOption"
                 onClick={() => {
                   setStory("beststories");
                   toggleDropdown();
@@ -126,7 +125,7 @@ const Stories = () => {
             </li>
             <li>
               <a
-              data-testid="storiesOption"
+                data-testid="storiesOption"
                 onClick={() => {
                   setStory("jobstories");
                   toggleDropdown();
@@ -138,7 +137,7 @@ const Stories = () => {
             </li>
             <li>
               <a
-              data-testid="storiesOption"
+                data-testid="storiesOption"
                 onClick={() => {
                   setStory("newstories");
                   toggleDropdown();
@@ -150,7 +149,7 @@ const Stories = () => {
             </li>
             <li>
               <a
-              data-testid="storiesOption"
+                data-testid="storiesOption"
                 onClick={() => {
                   setStory("showstories");
                   toggleDropdown();
@@ -162,7 +161,7 @@ const Stories = () => {
             </li>
             <li>
               <a
-              data-testid="storiesOption"
+                data-testid="storiesOption"
                 onClick={() => {
                   setStory("topstories");
                   toggleDropdown();
@@ -176,8 +175,14 @@ const Stories = () => {
         </div>
       )}
 
-      {/*Renders different components depending on the state of isLoading and isError*/}
-      {isLoading ? <p>Loading...</p> : isError ? <p>Unable to fetch data. Please try again later</p> : <StoriesDisplay data={storyData} />}
+      {/* Renders different components depending on the state of isLoading and isError */}
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : isError ? (
+        <p>Unable to fetch data. lease try again later</p>
+      ) : (
+        <StoriesDisplay data={storyData} />
+      )}
     </div>
   );
 };

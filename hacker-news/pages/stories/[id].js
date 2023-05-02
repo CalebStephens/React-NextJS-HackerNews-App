@@ -18,7 +18,7 @@ const Story = ({ story }) => {
   const router = useRouter();
   // get the ID from the router query
   const { id } = router.query;
-  
+
   // return the JSX for the Story component
   return (
     <>
@@ -27,18 +27,39 @@ const Story = ({ story }) => {
       <p>Title: {story.title}</p>
       <p>Type: {story.type}</p>
       {story.kids ? ( // if the story has kids, display them
-      <div>Kids:{
-        story.kids.slice(0, 5).map((kid, index) => {
-          return <p key={index}> &emsp;<a href={`https://hacker-news.firebaseio.com/v0/item/${kid}.json?print=pretty`} target="_blank">{`https://hacker-news.firebaseio.com/v0/item/${kid}.json?print=pretty`}</a></p>;
-        })}</div>
-      ) : (// otherwise, display N/A
+        <div>
+          Kids:
+          {story.kids.slice(0, 5).map((kid, index) => {
+            return (
+              <p key={index}>
+                {" "}
+                &emsp;
+                <a
+                  href={`https://hacker-news.firebaseio.com/v0/item/${kid}.json?print=pretty`}
+                  target="_blank"
+                >{`https://hacker-news.firebaseio.com/v0/item/${kid}.json?print=pretty`}</a>
+              </p>
+            );
+          })}
+        </div>
+      ) : (
+        // otherwise, display N/A
         <p>N/A</p>
       )}
       <p>Score: {story.score}</p>
-      {/*Calls a time conversion method with the epoch time from api */}
+      {/* Calls a time conversion method with the epoch time from api */}
       <p>Date/Time: {TimeConverter(story.time).props.children}</p>
-      {/*If the story has a text property, display it, otherwise display N/A */}
-      {story.url ? <p>Url: <a href={`${story.url}`} target="_blank">{story.url}</a></p> : <p>N/A</p>}
+      {/* If the story has a text property, display it, otherwise display N/A */}
+      {story.url ? (
+        <p>
+          Url:{" "}
+          <a href={`${story.url}`} target="_blank">
+            {story.url}
+          </a>
+        </p>
+      ) : (
+        <p>N/A</p>
+      )}
     </>
   );
 };

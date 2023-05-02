@@ -2,7 +2,6 @@
 import Link from "next/link";
 
 const StoriesDisplay = ({ data }) => {
-  
   // Returning a div with a class name of "card-display-parent" and mapping over the data array received in the props
   return (
     <div className="card-display-parent">

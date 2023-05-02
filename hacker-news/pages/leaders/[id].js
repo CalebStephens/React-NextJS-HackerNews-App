@@ -26,7 +26,7 @@ const Leader = ({ account }) => {
   const MAXSUBMITTED = 10;
   return (
     <>
-    {/* If the "names" property of the "leaders" object includes the current "id" value display page otherwise show 404 */}
+      {/* If the "names" property of the "leaders" object includes the current "id" value display page otherwise show 404 */}
       {leaders.names.includes(id) ? (
         <div>
           <h1>User: {id}</h1>
@@ -36,16 +36,19 @@ const Leader = ({ account }) => {
           <p>ID: {account.id}</p>
           <p>Karma: {account.karma}</p>
           {/* Render a list of the user's submitted items, with links to their respective pages */}
-          <div>Submitted:
-          {account.submitted.slice(0, MAXSUBMITTED).map((kid, index) => {
-            return (
-              <p key={index}>&emsp;
-                <a
-                  href={`https://hacker-news.firebaseio.com/v0/item/${kid}.json?print=pretty`}
-                >{`https://hacker-news.firebaseio.com/v0/item/${kid}.json?print=pretty`}</a>
-              </p>
-            );
-          })}</div>
+          <div>
+            Submitted:
+            {account.submitted.slice(0, MAXSUBMITTED).map((kid, index) => {
+              return (
+                <p key={index}>
+                  &emsp;
+                  <a
+                    href={`https://hacker-news.firebaseio.com/v0/item/${kid}.json?print=pretty`}
+                  >{`https://hacker-news.firebaseio.com/v0/item/${kid}.json?print=pretty`}</a>
+                </p>
+              );
+            })}
+          </div>
         </div>
       ) : (
         <ErrorPage statusCode={404} />
