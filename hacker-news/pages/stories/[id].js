@@ -28,8 +28,9 @@ const Story = ({ story }) => {
         <p>N/A</p>
       )}
       <p>Score: {story.score}</p>
-      
+      {/*Calls a time conversion method with the epoch time from api */}
       <p>Date/Time: {TimeConverter(story.time).props.children}</p>
+      {/*If the story has a text property, display it, otherwise display N/A */}
       {story.url ? <p>Url: <a href={`${story.url}`} target="_blank">{story.url}</a></p> : <p>N/A</p>}
     </>
   );
