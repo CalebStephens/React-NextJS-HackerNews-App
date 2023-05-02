@@ -2,8 +2,18 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   gap: 1rem;
+  margin: 1rem 1rem;
 
   .card-parent {
     border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #000;
+
+    &:hover{
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+    }
   }
 }
