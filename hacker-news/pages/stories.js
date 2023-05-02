@@ -177,7 +177,7 @@ const Stories = () => {
 
       {/* Renders different components depending on the state of isLoading and isError */}
       {isLoading ? (
-        <p>Loading...</p>
+        <p data-testid="loading">Loading...</p>
       ) : isError ? (
         <p>Unable to fetch data. lease try again later</p>
       ) : (

@@ -10,8 +10,8 @@ const LeadersDisplay = ({ data }) => {
         return (
           /* Creating a Link component that points to the page of the individual leader 
              using the dynamic route syntax with the "leader" parameter */
-          <Link href={`/leaders/${leader}`} className="card-parent" key={index}>
-            <h2>{leader}</h2>
+          <Link href={`/leaders/${leader}`} className="card-parent" key={index} data-testid="leader-card">
+            <h2 data-testid="leader-header">{leader}</h2>
           </Link>
         );
       })}

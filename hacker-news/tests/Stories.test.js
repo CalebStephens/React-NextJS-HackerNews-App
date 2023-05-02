@@ -1,11 +1,10 @@
 import "@testing-library/jest-dom";
 import {
-  test,
-  expect,
   fireEvent,
   render,
   screen,
   waitFor,
+  waitForElementToBeRemoved,
 } from "@testing-library/react";
 import Stories from "@/pages/stories";
 // import StoriesDisplay from "@/components/StoriesDisplay";
@@ -30,9 +29,12 @@ test("show 50 stories for the default option", async () => {
   fireEvent.click(dropdownButton);
   const choice = screen.getByText("New Stories");
   fireEvent.click(choice);
-
+  const loadingText = screen.getByTestId("loading");
+  expect(loadingText).toBeInTheDocument();
   await waitFor(() => {
     const stories = screen.getAllByTestId("individual-story");
-    expect(stories.length).toBe(50);
   });
+  
+  expect(stories.length).toBe(50);
+  
 });
