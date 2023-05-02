@@ -9,6 +9,7 @@ const StoriesDisplay = ({ data }) => {
             href={`/stories/${story.id}`}
             className="card-parent"
             key={story.id}
+            data-testid="individual-story"
           >
             <h2>{story.title}</h2>
           </Link>
