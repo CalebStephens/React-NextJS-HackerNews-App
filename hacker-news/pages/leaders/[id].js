@@ -1,3 +1,10 @@
+/*
+  This page displays information about a specific Hacker News user.
+  It imports the useRouter hook from Next.js to get the current router object.
+  It then uses the "id" property of the router query object to fetch the user's data from the Hacker News API.
+  It then renders the user's data.
+*/
+
 // Import the axios library for making HTTP requests
 import axios from "axios";
 // Import the useRouter hook from the Next.js router library

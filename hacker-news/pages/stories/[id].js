@@ -1,3 +1,10 @@
+/*
+  This page will display the details of a story
+  It will import the useRouter hook from Next.js to get the ID from the URL
+  It will then use the ID to fetch the story data from the Hacker News API
+  It will then render the story data
+*/
+
 // Import the axios library for making HTTP requests
 import axios from "axios";
 // import useRouter hook from Next.js

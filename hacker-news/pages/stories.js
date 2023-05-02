@@ -1,3 +1,9 @@
+/*
+  This page displays a list of stories from the Hacker News API.
+  It imports the StoriesDisplay component and the axios library.
+  It then renders the StoriesDisplay component and passes the story data as a prop.
+*/
+
 // Import the axios library for making HTTP requests
 import axios from "axios";
 // Import the React library

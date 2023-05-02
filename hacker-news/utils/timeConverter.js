@@ -1,3 +1,8 @@
+/*
+    This module contains a single component that takes a UNIX timestamp as an argument and returns a string in the format YYYY-MM-DD HH:MM:SS.
+    It is used to convert the "created" timestamp of a user account from the Hacker News API into a human-readable format.
+*/
+
 // Define the TimeConverter component as an arrow function that takes a single argument (timeString)
 const TimeConverter = (timeString) => {
     const DATE = new Date(timeString * 1000); 
