@@ -72,7 +72,7 @@ const Stories = () => {
         type="button"
         onClick={toggleDropdown}
       >
-        Dropdown button
+        Choose Story Type
         <svg
           className="w-4 h-4 ml-2"
           aria-hidden="true"
