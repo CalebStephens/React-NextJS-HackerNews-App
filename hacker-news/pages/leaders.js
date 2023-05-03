@@ -16,4 +16,4 @@ const Leaders = () => {
 };
 
 // Exporting the leaders component as the default export of this module
-export default leaders;
+export default Leaders;

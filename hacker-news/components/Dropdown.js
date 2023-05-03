@@ -1,18 +1,28 @@
-import React, {useState} from 'react'
-import DropDownOption from './DropDownOption';
+/*
+    Dropdown component that displays a dropdown menu with the following options:
+    - New Stories
+    - Top Stories
+    - Best Stories
+    - Ask Stories
+    - Show Stories
+    - Job Stories
+    When an option is clicked, the dropdown menu should close and the Stories component should display the corresponding stories.
+*/
+
+import React, { useState } from "react";
+import DropDownOption from "./DropDownOption";
 
 const Dropdown = (props) => {
+  const [isOpen, setIsOpen] = useState(false); // dropdown toggle
 
-    const [isOpen, setIsOpen] = useState(false); // dropdown toggle
-
-    // When called toggles the dropdown menu
-    const toggleDropdown = () => {
-        setIsOpen(!isOpen);
-    };
+  // When called toggles the dropdown menu
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
     <>
-    <button
+      <button
         id="dropdownDefaultButton"
         data-dropdown-toggle="dropdown"
         data-testid="dropdown-toggle"
@@ -46,20 +56,42 @@ const Dropdown = (props) => {
             className="py-2 text-sm text-gray-700 dark:text-gray-200"
             aria-labelledby="dropdownDefaultButton"
           >
-            {/* Each menu item calls a function to set the story type */}
-         
-            <DropDownOption setOption={props.setOption} toggleDropdown={toggleDropdown} option={"askstories"}/>
-            <DropDownOption setOption={props.setOption} toggleDropdown={toggleDropdown} option={"beststories"}/>
-            <DropDownOption setOption={props.setOption} toggleDropdown={toggleDropdown} option={"jobstories"}/>
-            <DropDownOption setOption={props.setOption} toggleDropdown={toggleDropdown} option={"newstories"}/>
-            <DropDownOption setOption={props.setOption} toggleDropdown={toggleDropdown} option={"showstories"}/>
-            <DropDownOption setOption={props.setOption} toggleDropdown={toggleDropdown} option={"topstories"}/>
-            
+            {/* Each menu item calls the parent component's setOption and toggleDropdown functions with the selected option */}
+            <DropDownOption
+              setOption={props.setOption}
+              toggleDropdown={toggleDropdown}
+              option={"askstories"}
+            />
+            <DropDownOption
+              setOption={props.setOption}
+              toggleDropdown={toggleDropdown}
+              option={"beststories"}
+            />
+            <DropDownOption
+              setOption={props.setOption}
+              toggleDropdown={toggleDropdown}
+              option={"jobstories"}
+            />
+            <DropDownOption
+              setOption={props.setOption}
+              toggleDropdown={toggleDropdown}
+              option={"newstories"}
+            />
+            <DropDownOption
+              setOption={props.setOption}
+              toggleDropdown={toggleDropdown}
+              option={"showstories"}
+            />
+            <DropDownOption
+              setOption={props.setOption}
+              toggleDropdown={toggleDropdown}
+              option={"topstories"}
+            />
           </ul>
         </div>
-        )}
+      )}
     </>
-  )
-}
+  );
+};
 
 export default Dropdown;

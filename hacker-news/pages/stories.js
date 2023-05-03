@@ -16,7 +16,6 @@ import Dropdown from "@/components/Dropdown";
 // Define the Stories component
 const Stories = () => {
   // Define state variables using the useState hook
-  const [isOpen, setIsOpen] = useState(false); // dropdown toggle
   const [isError, setIsError] = useState(false); // error state
   const [isLoading, setIsLoading] = useState(false); // loading state
   const [story, setStory] = useState("askstories"); // selected story type
@@ -61,7 +60,7 @@ const Stories = () => {
 
   return (
     <div className="relative">
-      <Dropdown setOption={setStory}/>
+      <Dropdown setOption={setStory} />
       {/* Renders different components depending on the state of isLoading and isError */}
       {isLoading ? (
         <p data-testid="loading">Loading...</p>
