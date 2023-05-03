@@ -25,15 +25,15 @@
         "js": "always"
       }
     ],
-
+    "no-undef": "warn",
     "import/no-unresolved": "off",
     "arrow-body-style": "off",
     "no-nested-ternary": "off",
     "prettier/prettier": ["error", { "endOfLine": "auto" }],
     "testing-library/await-async-query": "error",
-		"testing-library/no-await-sync-query": "error",
-		"testing-library/no-debugging-utils": "warn",
-		"testing-library/no-dom-import": "off"
+    "testing-library/no-await-sync-query": "error",
+    "testing-library/no-debugging-utils": "warn",
+    "testing-library/no-dom-import": "off"
   },
   "plugins": ["prettier", "testing-library"]
 }

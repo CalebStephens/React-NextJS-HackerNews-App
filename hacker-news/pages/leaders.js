@@ -10,7 +10,7 @@ import leadersJson from "@/json/leaders";
 import LeadersDisplay from "@/components/LeadersDisplay";
 
 // Defining a functional component named "leaders"
-const leaders = () => {
+const Leaders = () => {
   // Rendering the LeadersDisplay component and passing the "names" data from the leadersJson as a prop
   return <LeadersDisplay data={leadersJson.names} />;
 };

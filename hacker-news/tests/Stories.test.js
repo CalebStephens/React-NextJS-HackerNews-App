@@ -28,9 +28,10 @@ test("show 50 stories for the New Stories option", async () => {
   const choice = screen.getByText("New Stories");
   fireEvent.click(choice);
   const loadingText = screen.getByTestId("loading");
-  waitForElementToBeRemoved(loadingText).then(()=>
-  {const stories = screen.getAllByTestId("individual-story");
-  expect(stories.length).toBe(50)});
+  waitForElementToBeRemoved(loadingText).then(() => {
+    const stories = screen.getAllByTestId("individual-story");
+    expect(stories.length).toBe(50);
+  });
 });
 
 test("show 50 stories for the Top Stories option", async () => {
@@ -40,9 +41,10 @@ test("show 50 stories for the Top Stories option", async () => {
   const choice = screen.getByText("Top Stories");
   fireEvent.click(choice);
   const loadingText = screen.getByTestId("loading");
-  waitForElementToBeRemoved(loadingText).then(()=>
-  {const stories = screen.getAllByTestId("individual-story");
-  expect(stories.length).toBe(50)});
+  waitForElementToBeRemoved(loadingText).then(() => {
+    const stories = screen.getAllByTestId("individual-story");
+    expect(stories.length).toBe(50);
+  });
 });
 
 test("show 50 stories for the Best Stories option", async () => {
@@ -52,9 +54,10 @@ test("show 50 stories for the Best Stories option", async () => {
   const choice = screen.getByText("Best Stories");
   fireEvent.click(choice);
   const loadingText = screen.getByTestId("loading");
-  waitForElementToBeRemoved(loadingText).then(()=>
-  {const stories = screen.getAllByTestId("individual-story");
-  expect(stories.length).toBe(50)});
+  waitForElementToBeRemoved(loadingText).then(() => {
+    const stories = screen.getAllByTestId("individual-story");
+    expect(stories.length).toBe(50);
+  });
 });
 
 test("show 50 stories for the Job Stories option", async () => {
@@ -64,9 +67,10 @@ test("show 50 stories for the Job Stories option", async () => {
   const choice = screen.getByText("Job Stories");
   fireEvent.click(choice);
   const loadingText = screen.getByTestId("loading");
-  waitForElementToBeRemoved(loadingText).then(()=>
-  {const stories = screen.getAllByTestId("individual-story");
-  expect(stories.length).toBe(50)});
+  waitForElementToBeRemoved(loadingText).then(() => {
+    const stories = screen.getAllByTestId("individual-story");
+    expect(stories.length).toBe(50);
+  });
 });
 
 test("show 50 stories for the Show option", async () => {
@@ -76,9 +80,10 @@ test("show 50 stories for the Show option", async () => {
   const choice = screen.getByText("Show Stories");
   fireEvent.click(choice);
   const loadingText = screen.getByTestId("loading");
-  waitForElementToBeRemoved(loadingText).then(()=>
-  {const stories = screen.getAllByTestId("individual-story");
-  expect(stories.length).toBe(50)});
+  waitForElementToBeRemoved(loadingText).then(() => {
+    const stories = screen.getAllByTestId("individual-story");
+    expect(stories.length).toBe(50);
+  });
 });
 
 test("show 50 stories for the Ask Stories option", async () => {
@@ -88,9 +93,10 @@ test("show 50 stories for the Ask Stories option", async () => {
   const choice = screen.getByText("Ask Stories");
   fireEvent.click(choice);
   const loadingText = screen.getByTestId("loading");
-  waitForElementToBeRemoved(loadingText).then(()=>
-  {const stories = screen.getAllByTestId("individual-story");
-  expect(stories.length).toBe(50)});
+  waitForElementToBeRemoved(loadingText).then(() => {
+    const stories = screen.getAllByTestId("individual-story");
+    expect(stories.length).toBe(50);
+  });
 });
 
 test("show loading when the Ask Stories option has been clicked", async () => {

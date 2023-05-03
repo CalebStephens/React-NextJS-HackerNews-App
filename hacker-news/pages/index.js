@@ -13,7 +13,7 @@ export default function Home() {
     // A div with a class of "card-display-parent" and "center", which are used for styling
     <div className="card-display-parent center">
       {/* Link component that will navigate to the "stories" page when clicked */}
-      <Link href="./stories" className="card-parent" data-testid="page-button"> 
+      <Link href="./stories" className="card-parent" data-testid="page-button">
         <h1>Go To Stories</h1>
       </Link>
       {/* Link component that will navigate to the "leaders" page when clicked */}
