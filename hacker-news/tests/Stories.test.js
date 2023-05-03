@@ -6,7 +6,6 @@ import {
   waitForElementToBeRemoved,
 } from "@testing-library/react";
 import Stories from "@/pages/stories";
-// import StoriesDisplay from "@/components/StoriesDisplay";
 
 test("dropdown button should be rendered", () => {
   render(<Stories />);
